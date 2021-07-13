@@ -111,4 +111,30 @@ Query:  select *from customer_list
 4)  Find out the list of customers from Canada who have rented “NICK WAHLBERG” movies.
 
 
-Query:  
+Query:  select *from customer_list 
+	where country = "Canada"
+	AND ID in
+		(select rental.customer_id 
+	     from actor,film_actor,inventory,rental
+	     where actor.first_name="NICK" AND actor.last_name="WAHLBERG"
+	     AND actor.actor_id = film_actor.actor_id
+	     AND film_actor.film_id = inventory.film_id
+	     AND inventory.inventory_id = rental.inventory_id);
+	     
+	     
+	output:
+	'463', 'DARRELL POWER', '1844 Usak Avenue', '84461', '164414772677', 'Halifax', 'Canada', 'active', '2'
+	'189', 'LORETTA CARPENTER', '891 Novi Sad Manor', '5379', '247646995453', 'Oshawa', 'Canada', 'active', '1'
+	
+	
+	
+	
+5) Find out the number of movies in which “SEAN WILLIAMS” acted.
+
+Query:  select count(distinct film_actor.film_id) as TotalFilms from actor,film_actor
+	where actor.first_name="SEAN" AND actor.last_name="WILLIAMS"
+	AND film_actor.actor_id = actor.actor_id;
+	
+	output:
+	26
+

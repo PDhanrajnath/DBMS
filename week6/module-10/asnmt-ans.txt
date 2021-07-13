@@ -1,0 +1,57 @@
+1)  
+Student(StdNo(PK), StdName, StdAddress, StdCity, StdState, StdZip, StdEmai)
+Institution(InstID(PK), InstName, InstMascot)
+Lender (LenderNo(PK), LendName)
+Loan(LoanNo(PK), ProcDate, DisbMethod, DisbBank, DateAuth, NoteValue, Subsidized, Rate)
+DisburseLine(DataSent(PK), Amount, OrigFee, GuarFee)
+
+#(PK) --> indicates primary key
+
+*Student table / StdNo as primary key attribute.
+*Lender table / LenderNo as primary key attribute.
+*Loan table / LoanNo as primary key attribute.
+*Institution table / InstID as primary key attribute.
+*DisburseLine table / DateSent as primary key attribute.
+
+
+2)
+Student(StdNo(PK), StdName, StdAddress, StdCity, StdState, StdZip, StdEmai)
+Institution(InstID(PK), InstName, InstMascot)
+Lender (LenderNo(PK), LendName)
+Loan(LoanNo(PK), StdNo(FK), InstID(FK), LenderNO(FK), ProcDate, DisbMethod, DisbBank, DateAuth, NoteValue, Subsidized, Rate)
+FOREIGN KEY(StdNo) REFERENCES Student
+FOREIGN KEY(InstID) REFERENCES Institution
+FOREIGN KEY(LenderNo) REFERENCES Lender
+StdNo NOT NULL
+InstID NOT NULL
+LenderNo NOT NULL
+DisburseLine(DataSent(PK), LoanNo(FK), Amount, OrigFee, GuarFee)
+FOREIGN KEY(LoanNo) REFERENCES Loan
+
+#(PK) --> indicates primary key
+#(FK) --> indicates foreign key
+
+*apply 1-M relationship rule for all relationships
+
+3)
+*NA  -->Not Applicable!
+
+4)
+*Use the identification dependency rule to make LoanNo a component of the PK of DisburseLine. The PK of the DisburseLine table is a combination of LoanNo and DataSent. A not null constraint is not needed for DisburseLine LoanNo because this column is part of the primary key of DisburseLine.
+
+
+
+5)
+
+*Account(Acctid(PK), decAccNo, AcctName, Balance)
+ FOREIGN KEY(decAccNo) REFERENCES Account
+ 
+ 6)
+ *	Owner (OwnId(PK), OwnName, OwnPhone)
+	Property(PropId(PK), BldgName, UnitNo, Bdrms)
+	
+	Shares(OwnId(FK), PropId(FK), StartWeek, EndWeek)
+	FOREIGN KEY(OwnId) REFERENCES Owner
+	FOREIGN KEY(PropId) REFERENCES Property
+ 
+ 

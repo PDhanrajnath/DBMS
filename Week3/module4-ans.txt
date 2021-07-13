@@ -1,0 +1,7 @@
+SELECT CustNo, CustName, Phone, City FROM Customer;
+SELECT CustNo, CustName, Phone, City FROM Customer WHERE State = 'CO';
+SELECT *FROM Eventrequest WHERE EstCost > 4000 ORDER BY DateHeld;
+SELECT EventNo, DateHeld, Status, EstAudience FROM Eventrequest WHERE (Status = 'Approved' AND EstAudience > 9000) OR (Status = 'Pending' AND EstAudience > 7000);
+SELECT EventNo, DateHeld, Customer.CustNo, CustName FROM Eventrequest, Customer WHERE City = 'Boulder' AND DateHeld BETWEEN '2018-12-01'AND '2018-12-31' AND Eventrequest.CustNo = Customer.CustNo;
+SELECT PlanNo, AVG(NumberFld) AS AvgNumResources FROM EventPlanLine WHERE LocNo = 'L100' GROUP BY PlanNo;
+SELECT PlanNo, AVG(NumberFld) AS AvgNumResources, COUNT(*) AS NumEventLines FROM EventPlanLine WHERE LocNo = 'L100' GROUP BY PlanNo HAVING COUNT(*) > 1;

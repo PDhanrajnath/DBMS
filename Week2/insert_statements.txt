@@ -1,0 +1,173 @@
+INSERT INTO Customer(custno, Custname, address, Internal, contact, phone, city, state, zip)
+VALUES('C100', 'Football', 'Box 352200', 'Y', 'Mary Manager',   6857100, 'Boulder', 'CO', 80309);
+INSERT INTO Customer(custno, Custname, address, Internal, contact, phone, city, state, zip)
+VALUES('C101', 'Men"s Basketball', 'Box 352400', 'Y', 'Sally Supervisor', 5431700, 'Boulder', 'CO', 80309);
+INSERT INTO Customer(custno, Custname, address, Internal, contact, phone, city, state, zip)
+VALUES('C103', 'Baseball', 'Box 352020', 'Y', 'Bill Baseball', 5431234, 'Boulder', 'CO', 80309);
+INSERT INTO Customer(custno, Custname, address, Internal, contact, phone, city, state, zip)
+VALUES('C104', 'Women"s Softball', 'Box 351200', 'Y', 'Sue Softball', 5434321, 'Boulder', 'CO', 80309);
+INSERT INTO Customer(custno, Custname, address, Internal, contact, phone, city, state, zip)
+VALUES('C105', 'High School Football', '123 Any Street', 'N', 'Coach Bob', 4441234, 'Louiville', 'CO', 80027);
+
+
+
+
+INSERT INTO Facility (facno, facname)
+VALUES('F100', 'Football Stadium');
+INSERT INTO Facility (facno, facname)
+VALUES('F101', 'Basketball arena');
+INSERT INTO Facility (facno, facname)
+VALUES('F102', 'Baseball field');
+INSERT INTO Facility (facno, facname)
+VALUES('F103', 'Recreation room');
+
+
+
+
+INSERT INTO Location (locno, facno, locname)
+VALUES('L100','F100', 'Locker room');
+INSERT INTO Location (locno, facno, locname)
+VALUES('L101','F100', 'Plaza');
+INSERT INTO Location (locno, facno, locname)
+VALUES('L102','F100', 'Vehicle gate');
+INSERT INTO Location (locno, facno, locname)
+VALUES('L103','F101', 'Locker room');
+INSERT INTO Location (locno, facno, locname)
+VALUES('L104','F100', 'Ticket Booth');
+INSERT INTO Location (locno, facno, locname)
+VALUES('L105','F101', 'Gate');
+INSERT INTO Location (locno, facno, locname)
+VALUES('L106','F100', 'Pedestrian gate');
+
+
+
+
+INSERT INTO EventReq(eventno, dateheld, datereq, facno, custno, Dateauth, status, estcost, estaudience, budno)
+VALUES('E100', str_to_date('25-OCT-2018','%d-%b-%Y'),  str_to_date('06-JUN-2018', '%d-%b-%Y'), 'F100', 'C100', str_to_date('08-JUN-2018', '%d-%b-%Y'), 'Approved', 5000.00, 80000, 'B1000');
+INSERT INTO EventReq(eventno, dateheld, datereq, facno, custno, Dateauth, status, estcost, estaudience, budno)
+VALUES('E101', str_to_date('26-OCT-2018', '%d-%b-%Y'), str_to_date('28-JUL-2018', '%d-%b-%Y'), 'F100', 'C100', str_to_date('', '%d-%b-%Y'), 'Pending', 5000.00, 80000, 'B1000');
+INSERT INTO EventReq(eventno, dateheld, datereq, facno, custno, Dateauth, status, estcost, estaudience, budno)
+VALUES('E102', str_to_date('14-SEP-2018', '%d-%b-%Y'), str_to_date('28-JUL-2018', '%d-%b-%Y'), 'F100', 'C100', str_to_date('31-JUL-2018', '%d-%b-%Y'), 'Approved', 5000.00, 80000, 'B1000');
+INSERT INTO EventReq(eventno, dateheld, datereq, facno, custno, Dateauth, status, estcost, estaudience, budno)
+VALUES('E103', str_to_date('21-SEP-2018', '%d-%b-%Y'), str_to_date('28-JUL-2018', '%d-%b-%Y'), 'F100', 'C100', str_to_date('01-AUG-2018', '%d-%b-%Y'), 'Approved', 5000.00, 80000, 'B1000');
+INSERT INTO EventReq(eventno, dateheld, datereq, facno, custno, Dateauth, status, estcost, estaudience, budno)
+VALUES('E104', str_to_date('03-DEC-2018', '%d-%b-%Y'), str_to_date('28-JUL-2018', '%d-%b-%Y'), 'F101', 'C101', str_to_date('31-JUL-2018', '%d-%b-%Y'), 'Approved', 2000.00, 12000, 'B1000');
+INSERT INTO EventReq(eventno, dateheld, datereq, facno, custno, Dateauth, status, estcost, estaudience, budno)
+VALUES('E105', str_to_date('05-DEC-2018', '%d-%b-%Y'), str_to_date('28-JUL-2018', '%d-%b-%Y'), 'F101', 'C101', str_to_date('01-AUG-2018', '%d-%b-%Y'), 'Approved', 2000.00, 10000, 'B1000');
+INSERT INTO EventReq(eventno, dateheld, datereq, facno, custno, Dateauth, status, estcost, estaudience, budno)
+VALUES('E106', str_to_date('12-DEC-2018', '%d-%b-%Y'), str_to_date('28-JUL-2018', '%d-%b-%Y'), 'F101', 'C101', str_to_date('31-JUL-2018', '%d-%b-%Y'), 'Approved', 2000.00, 10000, 'B1000');
+INSERT INTO EventReq(eventno, dateheld, datereq, facno, custno, Dateauth, status, estcost, estaudience, budno)
+VALUES('E107', str_to_date('23-NOV-2018', '%d-%b-%Y'), str_to_date('28-JUL-2018', '%d-%b-%Y'), 'F100', 'C105', str_to_date('31-JUL-2018', '%d-%b-%Y'), 'Denied', 10000.00, 5000, '');
+
+
+
+
+INSERT INTO Employee(empno, empname, department, email, phone)
+VALUES('E100', 'Chuck Coordinator', 'Administration', 'chuck@colorado.edu', '3-1111');
+INSERT INTO Employee(empno, empname, department, email, phone)
+VALUES('E101', 'Mary Manager', 'Football', 'mary@colorado.edu', '5-1111');
+INSERT INTO Employee(empno, empname, department, email, phone)
+VALUES('E102', 'Sally Supervisor', 'Planning', 'sally@colorado.edu', '3-2222');
+INSERT INTO Employee(empno, empname, department, email, phone)
+VALUES('E103', 'Alan Administrator', 'Administration', 'alan@colorado.edu', '3-3333');
+
+
+
+
+
+INSERT INTO EventPlan(planno, Eventno, workdate, Notes, activity, empno)
+VALUES('P100', 'E100', str_to_date('25-Oct-2018', '%d-%b-%Y'), 'Standard operation', 'Operation', 'E102');
+INSERT INTO EventPlan(planno, Eventno, workdate, Notes, activity, empno)
+VALUES('P101', 'E104', str_to_date('03-Dec-2018', '%d-%b-%Y'), 'Watch for gate crashers', 'Operation', 'E100');
+INSERT INTO EventPlan(planno, Eventno, workdate, Notes, activity, empno)
+VALUES('P102', 'E105', str_to_date('05-Dec-2018', '%d-%b-%Y'), 'Standard operation', 'Operation', 'E102');
+INSERT INTO EventPlan(planno, Eventno, workdate, Notes, activity, empno)
+VALUES('P103', 'E106', str_to_date('12-Dec-2018', '%d-%b-%Y'), 'Watch for seat switching', 'Operation', NULL);
+INSERT INTO EventPlan(planno, Eventno, workdate, Notes, activity, empno)
+VALUES('P104', 'E101', str_to_date('26-Oct-2018', '%d-%b-%Y'),'Standard cleanup', 'Cleanup', 'E101');
+INSERT INTO EventPlan(planno, Eventno, workdate, Notes, activity, empno)
+VALUES('P105', 'E100', str_to_date('25-Oct-2018', '%d-%b-%Y'), 'Light cleanup', 'Cleanup', 'E101');
+INSERT INTO EventPlan(planno, Eventno, workdate, Notes, activity, empno)
+VALUES('P199', 'E102', str_to_date('10-Dec-2018', '%d-%b-%Y'), 'Standard operation', 'Operation', 'E101');
+INSERT INTO EventPlan(planno, Eventno, workdate, Notes, activity, empno)
+VALUES('P299', 'E101', str_to_date('26-Oct-2018', '%d-%b-%Y'),'', 'Operation', 'E101');
+INSERT INTO EventPlan(planno, Eventno, workdate, Notes, activity, empno)
+VALUES('P349', 'E106', str_to_date('12-Dec-2018', '%d-%b-%Y'),'', 'Cleanup', 'E101');
+INSERT INTO EventPlan(planno, Eventno, workdate, Notes, activity, empno)
+VALUES('P85', 'E100', str_to_date('25-Oct-2018', '%d-%b-%Y'),'Standard operation', 'Setup', 'E102');
+INSERT INTO EventPlan(planno, Eventno, workdate, Notes, activity, empno)
+VALUES('P95', 'E101', str_to_date('26-Oct-2018', '%d-%b-%Y'),'Extra security', 'Setup', 'E102');
+
+
+
+
+INSERT INTO ResourceTbl(resno, Resname, rate)
+VALUES('R100', 'Attendant', '10.00');
+INSERT INTO ResourceTbl(resno, Resname, rate)
+VALUES('R101', 'Police', '15.00');
+INSERT INTO ResourceTbl(resno, Resname, rate)
+VALUES('R102', 'Usher', '10.00');
+INSERT INTO ResourceTbl(resno, Resname, rate)
+VALUES('R103', 'Nurse', '20.00');
+INSERT INTO ResourceTbl(resno, Resname, rate)
+VALUES('R104', 'Janitor', '15.00');
+INSERT INTO ResourceTbl(resno, Resname, rate)
+VALUES('R105', 'food service', '10.00');
+
+
+
+
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P100', 1, '8:00:00', '17:00:00', 2, 'L100', 'R100');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P100', 2, '12:00:00', '17:00:00', 2, 'L101', 'R101');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P100', 3, '7:00:00', '16:30:00', 1, 'L102', 'R102');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P100', 4, '18:00:00', '22:00:00', 2, 'L100', 'R102');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P101', 1, '18:00:00', '20:00:00', 2, 'L103', 'R100');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P101', 2, '18:30:00', '19:00:00', 4, 'L105', 'R100');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P101', 3, '19:00:00', '20:00:00', 2, 'L103', 'R103');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P102', 1, '18:00:00', '19:00:00', 2, 'L103', 'R100');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P102', 2, '18:00:00', '21:00:00', 4, 'L105', 'R100');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P102', 3, '19:00:00','22:00:00', 2, 'L103', 'R103');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P103', 1,'18:00:00','21:00:00', 2, 'L103', 'R100');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P103', 2,'18:00:00','21:00:00', 4, 'L105', 'R100');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P103', 3,'19:00:00','22:00:00', 2, 'L103', 'R103');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P104', 1, '18:00:00','22:00:00', 4, 'L101', 'R104');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P104', 2,'18:00:00','22:00:00', 4, 'L100', 'R104');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P105', 1,'18:00:00','22:00:00', 4, 'L101', 'R104');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P105', 2,'18:00:00','22:00:00', 4, 'L100', 'R104');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P199', 1,'8:00:00','12:00:00', 1, 'L100', 'R100');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P349', 1,'12:00:00','15:30:00', 1, 'L103', 'R100');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P85', 1,'9:00:00','17:00:00', 5, 'L100', 'R100');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P85', 2,'8:00:00', '17:00:00', 2, 'L102', 'R101');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P85', 3, '10:00:00', '15:00:00', 3, 'L104', 'R100');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P95', 1, '8:00:00','17:00:00', 4, 'L100', 'R100');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P95', 2, '9:00:00','17:00:00', 4, 'L102', 'R101');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P95', 3,'10:00:00','15:00:00', 4, 'L106', 'R100');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P95', 4,'13:00:00','17:00:00', 2, 'L100', 'R103');
+INSERT INTO eventplnline(planno, lineno, timestart, timeend, numberfld, locno, resno)
+VALUES('P95', 5,'13:00:00','17:00:00', 2, 'L101', 'R104');

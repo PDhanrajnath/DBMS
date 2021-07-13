@@ -1,0 +1,93 @@
+CREATE TABLE Customer(custno VARCHAR(8) NOT NULL,
+Custname VARCHAR(100) NOT NULL,
+address VARCHAR(100) NOT NULL,
+Internal CHAR(1) NOT NULL,
+contact VARCHAR(100) NOT NULL,
+phone INTEGER NOT NULL,
+city VARCHAR(100) NOT NULL,
+state CHAR(2) NOT NULL,
+zip INTEGER NOT NULL,
+CONSTRAINT CustomerTablePKcustno PRIMARY KEY(custno));
+
+
+
+
+CREATE TABLE Facility(facno VARCHAR(8) NOT NULL,
+facname VARCHAR(100) NOT NULL,
+CONSTRAINT PKFacilityfacno PRIMARY KEY(facno));
+
+
+
+
+CREATE TABLE Location(locno VARCHAR(8) NOT NULL,
+locname VARCHAR(100) NOT NULL,
+facno VARCHAR(8) NOT NULL,
+CONSTRAINT PKLocationlocno PRIMARY KEY(locno),
+CONSTRAINT FKFacilityfacno FOREIGN KEY (facno) REFERENCES Facility (facno));
+
+
+
+
+CREATE TABLE Eventrequest(eventno VARCHAR(8) NOT NULL,
+dateheld DATE NOT NULL,
+datereq DATE NOT NULL,
+facno VARCHAR(8) NOT NULL,
+custno VARCHAR(8) NOT NULL,
+Dateauth DATE,
+status VARCHAR(8) NOT NULL,
+estcost DECIMAL(9,2) NOT NULL,
+estaudience INTEGER NOT NULL,
+budno CHAR(5),
+CONSTRAINT PKEventrequestEventno PRIMARY KEY(eventno),
+CONSTRAINT FKEventrequestfacNo FOREIGN KEY(facno) REFERENCES Facility(facno),
+CONSTRAINT FKEventrequestcustNo FOREIGN KEY(custno) REFERENCES Customer(custno));
+
+
+
+
+CREATE TABLE Employee(empno VARCHAR(8) NOT NULL,
+empname VARCHAR(100) NOT NULL,
+department VARCHAR(100) NOT NULL,
+email VARCHAR(100) NOT NULL,
+phone VARCHAR(100) NOT NULL,
+CONSTRAINT PKEmployeeempno PRIMARY KEY(empno));
+
+
+
+
+CREATE TABLE EventPlan(planno VARCHAR(8) NOT NULL,
+Eventno VARCHAR(8) NOT NULL,
+workdate DATE NOT NULL,
+Notes VARCHAR(100),
+activity VARCHAR(100) NOT NULL,
+empno VARCHAR(8),
+CONSTRAINT PKEventPlanplanno PRIMARY KEY(planno),
+CONSTRAINT FKEventPlanempno FOREIGN KEY(empno) REFERENCES Employee(empno),
+CONSTRAINT FKEventPlanEventNo FOREIGN KEY(eventno) REFERENCES Eventrequest(eventno));
+
+
+
+
+CREATE TABLE ResourceTbl(resno VARCHAR(8) NOT NULL,
+Resname VARCHAR(100) NOT NULL,
+rate DECIMAL(5, 2) NOT NULL,
+CONSTRAINT PKResourceTblresno PRIMARY KEY(resno));
+
+
+
+CREATE TABLE EventPlanLine(planno VARCHAR(8) NOT NULL,
+lineno INTEGER NOT NULL,
+timestart TIME NOT NULL, 
+timeend TIME NOT NULL, 
+numberfld INTEGER NOT NULL,
+locno VARCHAR(8) NOT NULL,
+resno VARCHAR(8) NOT NULL,
+CONSTRAINT PKEventPlanLineplannolineno PRIMARY KEY(planno, lineno),
+CONSTRAINT FKEventPlanLineplanno FOREIGN KEY(planno) REFERENCES EventPlan(planno),
+CONSTRAINT FKEventPlanLinelocno FOREIGN KEY(locno) REFERENCES Location(locno),
+CONSTRAINT FKEventPlanLineresno FOREIGN KEY(resno) REFERENCES ResourceTbl(resno));
+
+
+
+
+

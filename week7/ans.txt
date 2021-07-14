@@ -1,0 +1,47 @@
+1)
+	Insertion Anomalies:
+	It’s necessary to know VisitNo and ProvNo because primary key is the combination of these two.
+	Delete Anomalies:
+	If we just delete the provider of D2, we’ll lose information of visit V10021. 
+	Update Aomalies:
+	If we change ProvSpeciality where ProvNo is D2, two row have to be changed.
+	
+	
+2)
+	FD'S:
+	    List of FDs
+	    • PatNo                   -> PatAge, PatZip
+	    • PatZip                  -> PatCity
+	    • VisitNo                 -> PatNo, VisitDate
+	    • ProvNo                  -> ProvSpecialty, ProvEmail
+	    • ProvNo, VisitNo         -> Diagnosis 
+	    
+	    
+	BCNF Tables
+		Table Patient(PatNo(PK), PatAge, PatZip)
+			FOREIGN KEY(PatZip) REFERENCES Table PatientAddress
+		Table PatientAddress(PatZip(PK), PatCity)
+		Table Visit(VisitNo(PK), PatNo, VisitDate)
+			FOREIGN KEY(PatNo) REFERENCES Table Patient
+		Table Prov(ProvNo(PK), ProvSpecialty, ProvEmail)
+			UNIQUE(ProvEmail)
+		Table Prov_Visit(ProvNo, VisitNo, Diagnosis)
+			FOREIGN KEY (ProvNo) REFERENCES Table Provisional
+			FOREIGN KEY(VisitNo) REFERENCES Table Visit
+			
+			
+3) 
+	Student (StdNo, StdName, StdEmail, StdAddress, StdCity, StdState, StdZip )
+	Lender(LenderNo, LenderName)
+	Institution(InstNo, InstName, InstMascot)
+	
+	UNIQUE(StdEmail)  -> Student table shouldn't violate BCNF!!
+	UNIQUE(LenderName) -> Lender table
+	UNIQUE(InstName)   -> Institution table shouldn't violate BCNF!!
+	all these attributes are unique with respect to their tables!
+	
+	
+	
+4)
+	
+	

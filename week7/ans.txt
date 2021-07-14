@@ -43,5 +43,12 @@
 	
 	
 4)
-	
+	OrdNo→ItemNo (1,2), (3,4)
+	OrdNo→QtyOrd(3,4)
+	OrdNo→CustNo NONE
+	OrdNo→CustBal NONE
+	OrdNo→CustDisc NONE
+	OrdNo→ItemPrice (1,2),(3,4)
+	OrdNo→OrdDate NONE
+
 	

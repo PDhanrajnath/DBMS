@@ -34,7 +34,18 @@ Query:
 		
 4) Find out the top 3 rented category of movies by “PATRICIA JOHNSON”.
 
-Query: 
+Query:  SELECT film_list.category, count(film_list.category)
+	FROM customer
+	JOIN rental
+	ON customer.customer_id = rental.customer_id
+	JOIN inventory
+	ON rental.inventory_id = inventory.inventory_id
+	JOIN film_list
+	ON inventory.film_id = film_list.FID
+	WHERE customer.first_name = 'PATRICIA' AND customer.last_name = 'JOHNSON'
+	GROUP BY film_list.category
+	ORDER BY count(film_list.category) desc 
+	LIMIT 3;
 
 
 

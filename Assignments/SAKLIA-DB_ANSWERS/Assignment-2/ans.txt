@@ -1,0 +1,21 @@
+select *from film 
+	where special_features like "%Deleted Scenes%"
+	AND film.film_id 
+	IN 
+	(select film_category.film_id from category,film_category 
+	where category.name = "Documentary" 
+	AND category.category_id = film_category.category_id);
+	
+	
+select r.rental_id from film_list f,staff sf,store se,rental r, inventory i
+	where f.category = 'Sci-fi'
+		and f.FID = i.film_id
+	    and se.manager_staff_id = sf.staff_id
+	    and r.inventory_id = i.inventory_id
+	    and i.store_id = se.store_id
+	    and sf.first_name = 'Jon' and sf.last_name = 'Stephens';
+	    
+	    
+	    
+select total_sales from sales_by_film_category
+	where category='Animation';
